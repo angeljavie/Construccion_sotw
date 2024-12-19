@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Entradas</title>
+</head>
+<body>
+    <h1>Lista de Entradas</h1>
+    <ul>
+        {% for entry in entries %}
+            <li>
+                <h2>{{ entry.title }}</h2>
+                <p>{{ entry.description }}</p>
+                {% if entry.image %}
+                    <img src="{{ entry.image.url }}" alt="{{ entry.title }}" style="max-width: 300px;">
+                {% endif %}
+                <p>Creado en: {{ entry.created_at }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
